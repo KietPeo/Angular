@@ -8,6 +8,7 @@
       <ul>
         <li><a routerLink="/">Home</a></li>
         <li><a routerLink="/contact">Contact</a></li>
+        <li><a routerLink="/admin">Admin</a></li>
       </ul>
     </nav>
     <!-- .navbar -->
@@ -18,8 +19,9 @@
       <div routerLink="/cart" class="btn btn-outline-dark">
         <i class="bi-cart-fill me-1"></i>
         Cart
-        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+        <span class="badge bg-dark text-white ms-1 rounded-pill">{{ cartQuantity }}</span>
       </div>
+      
 
       <!-- Thay đổi từ 'Login' sang 'Logout' khi isAuthenticated là true -->
       <ng-container *ngIf="authService.isAuthenticated; else loginButton">

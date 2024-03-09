@@ -8,7 +8,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-
+import { AdminComponent } from './admin/admin.component';
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "sanpham", component: ProductComponent },
@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "contact", component: ContactComponent },
   { path: "cart", component: CartComponent },
+  { path: "admin", component: AdminComponent },
   { path: "checkout", component: CheckoutComponent },
   { path: "product-detail/:id", component: ProductDetailComponent,title:"Chi Tiết sản phẩm" },
 ];

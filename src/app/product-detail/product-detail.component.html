@@ -1,26 +1,26 @@
-<section class="py-5" >
-    <div class="container px-4 px-lg-5 my-5">
+<section class="py-5" *ngIf="productDetail">
+  <div class="container px-4 px-lg-5 my-5">
       <div class="row gx-4 gx-lg-5 align-items-center">
-        <div class="col-md-6">
-          <img class="card-img-top mb-5 mb-md-0" [src]="productDetail?.imageUrl" alt="Product Image">
-        </div>
-        <div class="col-md-6">
-          <div class="small mb-1">SKU: {{ productDetail?.productCode}}</div>
-          <h1 class="display-5 fw-bolder">{{productDetail?.productName }}</h1>
-          <div class="fs-5 mb-5">
-            <span>Gia: {{ productDetail?.price }}</span> <br>
-            <span>So Luong {{productDetail?.inStock  }}</span>
+          <div class="col-md-6">
+              <img class="card-img-top mb-5 mb-md-0" [src]="productDetail.imageUrl" alt="Product Image">
           </div>
-          <p class="lead">{{ productDetail?.description }}</p>
-          <div class="d-flex">
-            <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem">
-            <a class="btn btn-outline-dark flex-shrink-0" (click)="Add()" type="button" routerLink="/cart">
-              <i class="bi-cart-fill me-1"></i>
-              Add to cart
-            </a>
+          <div class="col-md-6">
+              <div class="small mb-1">Mã sản phẩm: {{ productDetail.productCode }}</div>
+              <h1 class="display-5 fw-bolder">Tên:{{ productDetail.productName }}</h1>
+              <div class="fs-5 mb-5">
+                  <span>Giá: {{ productDetail.price }}</span> <br>
+                  <span>Số Lượng: {{ productDetail.inStock }}</span>
+              </div>
+              <p class="lead">{{ productDetail.description }}</p>
+              <div class="d-flex" *ngIf="productDetail.inStock > 0">
+                  <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem">
+                  <a class="btn btn-outline-dark flex-shrink-0" (click)="Add()" type="button" routerLink="/cart">
+                      <i class="bi-cart-fill me-1"></i>
+                      Add to cart
+                  </a>
+              </div>
+              <div *ngIf="productDetail.inStock === 0">Hết hàng</div>
           </div>
-        </div>
       </div>
-    </div>
-  </section>
-  
+  </div>
+</section>

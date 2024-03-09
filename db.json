@@ -1,17 +1,6 @@
 {
   "products": [
     {
-      "id": "1",
-      "productName": "sản phẩm 1",
-      "productCode": "GDN-0011",
-      "releaseDate": "March 19, 2016",
-      "description": "Đây là phần mô tả của sản phẩm 1",
-      "price": 199,
-      "starRating": 3.2,
-      "inStock": 5,
-      "imageUrl": "../assets/img/sanpham1.jpg"
-    },
-    {
       "id": "2",
       "productName": "sản phẩm 2",
       "productCode": "GDN-0023",
@@ -39,31 +28,18 @@
       "productCode": "GDN-0011",
       "releaseDate": "March 19, 2016",
       "description": "Đây là phần mô tả của sản phẩm 4",
-      "price": 199,
-      "starRating": 3.2,
+      "price": 1994444,
       "inStock": 5,
       "imageUrl": "../assets/img/sanpham4.jpg"
     },
     {
       "id": "5",
-      "productName": "sản phẩm 5",
-      "productCode": "GDN-0023",
-      "releaseDate": "March 18, 2016",
-      "description": "Đây là phần mô tả của sản phẩm 5",
-      "price": 920,
-      "starRating": 4.2,
-      "inStock": 5,
-      "imageUrl": "../assets/img/sanpham5.jpg"
-    },
-    {
-      "id": "6",
-      "productName": "sản phẩm ",
-      "productCode": "TBX-0048",
-      "releaseDate": "May 21, 2016",
-      "description": "Đây là phần mô tả của sản phẩm ",
-      "price": 759,
-      "starRating": 4.8,
-      "inStock": 5,
+      "productName": "sản phẩm 6",
+      "productCode": "123",
+      "releaseDate": "0132-03-12",
+      "description": "123",
+      "price": 123,
+      "inStock": 123,
       "imageUrl": "../assets/img/sanpham6.jpg"
     }
   ],
@@ -72,41 +48,6 @@
       "id": "1",
       "email": "1@gmail.com",
       "password": "123456789"
-    },
-    {
-      "id": "2",
-      "email": "2@gmail.com",
-      "password": "123456789"
-    },
-    {
-      "id": "4",
-      "email": "truongkiet233@gmail.com",
-      "password": "123456789",
-      "comfirm_password": "123456789"
-    },
-    {
-      "id": "6dc5",
-      "email": "admin@gmail.com",
-      "password": "123456789",
-      "comfirm_password": "123456789"
-    },
-    {
-      "id": "3e01",
-      "email": "truongkiet233@gmail.com",
-      "password": "123123123",
-      "comfirm_password": "123123123"
-    },
-    {
-      "id": "dcf9",
-      "email": "truongkiet233@gmail.com",
-      "password": "123123123",
-      "comfirm_password": "123123123"
-    },
-    {
-      "id": "c43a",
-      "email": "truongkiet2334@gmail.com",
-      "password": "123123123",
-      "comfirm_password": "123123123"
     }
   ]
 }

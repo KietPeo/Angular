@@ -7,27 +7,32 @@
                     <th>Image</th>
                     <th>Product Name</th>
                     <th class="text-center">Quantity</th>
+                    <th class="text-center">Price</th>
                     <th class="text-center">Subtotal</th>
                     <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#" (click)="DeleteAll()">Clear Cart</a></th>
                 </tr>
             </thead>
-            <tbody>
-                <tr *ngFor="let item of cartList">
-                    <td><a class="product-thumb" href="#"><img [src]="item.ImageUrl" width="100px" [alt]="item.Name"></a></td>
-                    <td><h4 class="product-title"><a href="#">{{ item.Name }}</a></h4></td>
-                    <td><input type="number" name="quantity" [(ngModel)]="item.Quantity"></td>
+            <tbody *ngIf="cartList.length > 0; else emptyCart">
+                <tr *ngFor="let item of cartList" >
+                    <td><img [src]="item.ImageUrl" width="100px" [alt]="item.Name"></td>
+                    <td>{{ item.Name }}</td>
+                    <td><input type="number" min="1"  class="form-control" name="quantity" [(ngModel)]="item.Quantity"></td>
+                    <td class="text-center text-lg text-medium">{{ item.Price  }}</td>
                     <td class="text-center text-lg text-medium">{{ item.Price && item.Quantity ? item.Price * item.Quantity : 0 }}</td>
-                    <td class="text-center">
-                        <a class="remove-from-cart" href="#" (click)="item.Id && Remove(item.Id)" data-toggle="tooltip" title="Remove item">
-                            <i class="fa fa-trash"></i>Xoá
-                        </a>
+                    <td class="text-center" *ngIf="item.Id !== undefined">
+                        <button class="btn btn-outline-danger"  (click)="Remove(item.Id)">
+                            Del
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <ng-template #emptyCart>
+        <p class="mt-4">Giỏ hàng rỗng</p>
+    </ng-template>
     <div class="shopping-cart-footer">
-        <div class="column text-lg">Subtotal: <span class="text-medium">{{ ItemSum() }}</span></div>
+        <div class="column text-lg" *ngIf="cartList.length > 0">Subtotal: <span class="text-medium">{{ ItemSum() }}</span></div>
     </div>
     <div class="shopping-cart-footer">
         <div class="column"><a class="btn btn-outline-secondary" routerLink="/"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>

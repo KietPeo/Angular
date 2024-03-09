@@ -150,7 +150,7 @@
             </div>
     
             <div class="row gy-5">
-              <div class="col-lg-4 menu-item" *ngFor="let product of products">
+              <div class="col-lg-4 menu-item" *ngFor="let product of products" style="cursor: pointer;">
                 <img src="{{ product.imageUrl }}"  class="menu-img img-fluid" alt="">
                 <!-- <a href="{{ product.imageUrl }}" class="glightbox"><img src="{{ product.imageUrl }}" class="menu-img img-fluid" alt=""></a> -->
                 <h4 routerLink="/product-detail/{{product.id}}">{{ product.productName }}</h4>

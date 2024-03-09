@@ -1,0 +1,64 @@
+<!-- Trong file template của component AdminComponent -->
+  <!-- Form để thêm sản phẩm mới -->
+  
+
+  <!-- Bảng hiển thị danh sách sản phẩm -->
+  <table class="table table-bordered mt-5">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Product</th>
+        <th>Code</th>
+        <th>Available</th>
+        <th>Price</th>
+        <th>Actions</th> <!-- Thêm cột cho nút Edit và Delete -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of productList; let i = index"> <!-- Thêm biến index để truyền vào hàm Edit và Delete -->
+        <td scope="row"><img src="{{ item.imageUrl }}" width="50px" alt="" srcset=""></td>
+        <td>{{ item.productName }}</td>
+        <td>{{ item.productCode }}</td>
+        <td>{{ item.releaseDate }}</td>
+        <td>{{ item.price }}</td>
+        <td>
+          <a  class="btn btn-info ms-auto" data-bs-toggle="modal" data-bs-target="#modelId" (click)="Edit(i)">Edit</a> <!-- Gọi hàm Edit với index là i -->
+          <a  class="btn btn-danger" (click)="Delete(i)">Delete</a> <!-- Gọi hàm Delete với index là i -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form (submit)="AddNewProduct()" [formGroup]="newProductForm" class="mb-3">
+    <div class="mb-3">
+      <label for="productName" class="form-label">Product Name</label>
+      <input type="text" class="form-control" id="productName" formControlName="productName" required>
+    </div>
+    <div class="mb-3">
+      <label for="productCode" class="form-label">Product Code</label>
+      <input type="text" class="form-control" id="productCode" formControlName="productCode" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Descripsition</label>
+      <input type="text" class="form-control" id="description" formControlName="description" required>
+    </div>
+    <div class="mb-3">
+      <label for="releaseDate" class="form-label">Release Date</label>
+      <input type="date" class="form-control" id="releaseDate" formControlName="releaseDate" required>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" class="form-control" id="price" formControlName="price" min="0" required>
+    </div>
+    <div class="mb-3">
+      <label for="inStock" class="form-label">inStock</label>
+      <input type="number" class="form-control" id="inStock" formControlName="inStock" min="0" required>
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Product Image</label>
+      <input type="file" class="form-control" id="image" formControlName="imageUrl" (change)="onImageChange($event)" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>  <br>
+     <button type="button" class="btn btn-primary mt-2" (click)="Update()">Update</button>
+
+  </form>
+  

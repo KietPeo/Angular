@@ -8,6 +8,6 @@ export interface Product {
         price: number,
         starRating: number,
         inStock: number,
-        imageUrl: string
-      
+        imageUrl: string,
+
 }
