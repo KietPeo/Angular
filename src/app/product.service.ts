@@ -21,6 +21,7 @@ export class ProductService {
   private URL= `http://localhost:4000/products`
   private cartProducts: Product[] = [];
   nextId: number = 4; // Giả sử id bắt đầu từ 4
+  private defaultImagePath = '../assets/img/'; // Đường dẫn mặc định
 
   constructor( private http:HttpClient) { }
 
@@ -42,9 +43,25 @@ export class ProductService {
   
   // Hàm cập nhật thông tin sản phẩm
   updateProduct(id: number, updatedProduct: Product): Observable<Product> {
-    const url = `${this.URL}/${id}`;
-    return this.http.put<Product>(url, updatedProduct);
+    // Kiểm tra xem có đường dẫn hình ảnh mới không, nếu không thì giữ nguyên
+    let imageUrl = updatedProduct.imageUrl;
+    if (!imageUrl.startsWith('data:image')) {
+      // Lấy tên file từ đường dẫn trả về từ trình duyệt
+      const fileName = imageUrl.split('\\').pop();
+      // Tạo đường dẫn mới sử dụng tên file đã lấy
+      imageUrl = this.defaultImagePath + fileName;
+    }
+    // Cập nhật đối tượng sản phẩm với đường dẫn hình ảnh đã sửa
+    const updatedProductWithImagePath = { ...updatedProduct, imageUrl: imageUrl };
+    // Chuyển id về dạng string
+    const idString = id.toString();
+    // Xây dựng URL
+    const url = `${this.URL}/${idString}`;
+    // Gọi API PUT để cập nhật sản phẩm
+    return this.http.put<Product>(url, updatedProductWithImagePath);
   }
+  
+  
   
   DeleteProduct(id: number): Observable<any> {
     return this.http.delete<any>(`${this.URL}/${id}`);
@@ -55,10 +72,18 @@ export class ProductService {
     return this.http.get<Product[]>(this.URL);
   }
 
-  // Thêm sản phẩm mới
-  addProduct(productData: any): Observable<any> {
+  addProductToCart(productData: any): Observable<any> {
     const productWithId = { ...productData, id: this.nextId++ };
+    // Thêm sản phẩm mới vào mảng cartProducts
+    this.cartProducts.push(productWithId);
+    // Gọi phương thức updateCartQuantity để cập nhật số lượng sản phẩm trong giỏ hàng
+    this.updateCartQuantity();
     return this.http.post<any>(`${this.URL}`, productWithId);
+  }
+
+  // Cập nhật số lượng sản phẩm trong giỏ hàng dựa trên sản phẩm trong mảng cartProducts
+  private updateCartQuantity(): void {
+    this.cartProducts.reduce((total, product) => total + product.inStock, 0);
   }
   
 

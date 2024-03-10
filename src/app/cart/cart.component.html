@@ -31,10 +31,14 @@
     <ng-template #emptyCart>
         <p class="mt-4">Giỏ hàng rỗng</p>
     </ng-template>
-    <div class="shopping-cart-footer">
-        <div class="column text-lg" *ngIf="cartList.length > 0">Subtotal: <span class="text-medium">{{ ItemSum() }}</span></div>
+    <div class="shopping-cart-footer" *ngIf="cartList.length > 0">
+        <div class="column text-lg">Subtotal: <span class="text-medium">{{ ItemSum() }}</span></div>
     </div>
-    <div class="shopping-cart-footer">
+    <div class="shopping-cart-footer" >
         <div class="column"><a class="btn btn-outline-secondary" routerLink="/"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
+        <div class="shopping-cart-footer" *ngIf="cartList.length > 0">
+            <div class="column"><a class="btn btn-info" routerLink="/checkout" ><i class="icon-arrow-left"></i>&nbsp;Check Out</a></div>
+        </div>
     </div>
+    
 </div>

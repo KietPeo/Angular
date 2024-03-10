@@ -4,7 +4,7 @@ export interface Cart {
     Code?: string,
     Price?: number,
     Des?: string,
-    inStock?: number; //
+    inStock?: number; 
     Quantity?: number,
     ImageUrl?: string
 }

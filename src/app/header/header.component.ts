@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { ProductService } from '../product.service'; // Import Product từ product.service.ts
-import { Product } from '../product';
+import { CartService } from '../cart.service'; // Import CartService từ cart.service.ts
 
 @Component({
   selector: 'app-header',
@@ -11,7 +10,7 @@ import { Product } from '../product';
 export class HeaderComponent implements OnInit {
   constructor(
     public authService: AuthService,
-    private productService: ProductService
+    private cartService: CartService // Inject CartService vào HeaderComponent
   ) { }
   
   cartQuantity: number = 0;
@@ -20,9 +19,11 @@ export class HeaderComponent implements OnInit {
     this.updateCartQuantity();
   }
 
-  updateCartQuantity() {
-    const cartProducts: Product[] = this.productService.getCartProducts();
-    this.cartQuantity = cartProducts.reduce((total, product) => total + product.inStock, 0);
+  updateCartQuantity(): void {
+    this.cartQuantity = this.cartService.getCartQuantity();
   }
-  
+
+  itemcount(){
+    return this.cartService.Total();
+  }
 }

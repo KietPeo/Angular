@@ -43,13 +43,14 @@ export class AdminComponent {
       const imagePath = formData.imageUrl.replace(/^.*[\\\/]/, ''); 
       this.imageUrl = '../assets/img/' + imagePath;
       formData.imageUrl = this.imageUrl;
-      this.productService.addProduct(formData).subscribe(() => {
+      this.productService.addProductToCart(formData).subscribe(() => { // Thay đổi tại đây
         this.loadProducts();
         this.newProductForm.reset();
         this.productService.nextId++; 
       });
     }
   }
+  
   
 
   onImageChange(event: any) {

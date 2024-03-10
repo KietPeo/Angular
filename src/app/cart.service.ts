@@ -11,8 +11,11 @@ import { Subject, Observable, of } from 'rxjs';
 export class CartService {
    cartList:Cart[]=[];  
   private cartListSubject = new Subject<Cart[]>(); // Subject để thông báo về sự thay đổi trong cartList
+  totalItems: number = 0; // Tổng số lượng sản phẩm trong giỏ hàng
 
-  constructor(private prod: ProductService, private router: Router, private authService: AuthService) { }
+  constructor(private prod: ProductService, private router: Router, private authService: AuthService) { 
+    
+  }
 
   getCartAll(){
     return this.cartList
@@ -55,47 +58,37 @@ export class CartService {
   }
 }
 
-  totalItems(){
+  Total(){
     let sum=0
     this.cartList.forEach(item=>{
       sum+=item.Quantity!;
     })
+    // console.log(sum);
     return sum
   }
-  Total(){
-    let total=0
+  TotalItem(){
+    let sum=0
     this.cartList.forEach(item=>{
-      total+=(item.Price!*item?.Quantity!);
+      sum+=item.Price!*item.Quantity!;
     })
-    return total
+    // console.log(sum);
+    return sum
   }
-  // RemoveCart(index: number) {
-  //   let removedItem = this.cartList[index];
   
-  //   if (removedItem && removedItem.Quantity && removedItem.Quantity > 0) {
+  getCartQuantity(): number {
+    let totalQuantity = 0;
+
+    this.cartList.forEach(item => {
+      totalQuantity += item.Quantity || 0;
+    });
+    // console.log(this.cartList);
+    return totalQuantity;
+  }
   
-  //     let selectedProduct = this.prod.products.find(
-  //       (product) => product.productName === removedItem.Name
-  //     );
-  
-  //     if (selectedProduct) {
-  //       selectedProduct.inStock++; // Tăng số lượng tồn kho của sản phẩm đã xóa
-  //     }
-  
-  //     if (this.cartList[index].Quantity === 0) {
-  //       this.cartList.splice(index, 1);
-  //     }
-  
-  //     console.log("Số lượng tồn kho đã cập nhật:", selectedProduct?.inStock);
-  
-  //     // Cập nhật lại cartList
-  //     this.updateCartList(this.cartList);
-  //   }
-  // }
+
   
   RemoveItemCart(id:number){
     const index=this.cartList.findIndex(item=>item.Id===id)
-      
     if (index !== -1) {
       this.cartList.splice(index, 1);
     }
@@ -104,5 +97,6 @@ export class CartService {
      return of(this.cartList=[])
   }
   
+
   
 }
