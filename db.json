@@ -1,66 +1,64 @@
 {
   "products": [
     {
-      "productName": "sản phẩm 2123123123123",
-      "productCode": "GDN-0023",
-      "releaseDate": "0132-03-12",
+      "productName": "Gỏi Đu Đủ",
+      "productCode": "2",
+      "releaseDate": "2222-02-22",
       "description": "Đây là phần mô tả của sản phẩm 2",
-      "price": 920,
-      "inStock": 5,
-      "imageUrl": "../assets/img/sanpham2.jpg",
+      "price": 2222,
+      "inStock": 21,
+      "imageUrl": "../assets/img/goidudu.png",
       "id": "2"
     },
     {
-      "id": "3",
-      "productName": "sản phẩm 3",
-      "productCode": "TBX-0048",
-      "releaseDate": "May 21, 2016",
+      "productName": "Miến Trộn",
+      "productCode": "3",
+      "releaseDate": "3333-03-33",
       "description": "Đây là phần mô tả của sản phẩm 3",
-      "price": 759,
-      "starRating": 4.8,
-      "inStock": 5,
-      "imageUrl": "../assets/img/sanpham3.jpg"
+      "price": 3333,
+      "inStock": 31,
+      "imageUrl": "../assets/img/mientron.png",
+      "id": "3"
     },
     {
-      "productName": "sản phẩm 2123123123123",
-      "productCode": "GDN-0023",
-      "releaseDate": "0132-03-12",
-      "description": "Đây là phần mô tả của sản phẩm 2",
-      "price": 920,
+      "productName": "Salas",
+      "productCode": "5",
+      "releaseDate": "2023-03-23",
+      "description": "Đây là phần mô tả của sản phẩm 5",
+      "price": 5555,
       "inStock": 5,
-      "imageUrl": "../assets/img/stats-bg.jpg",
-      "id": "4"
+      "imageUrl": "../assets/img/xalat.png",
+      "id": "5"
     },
     {
       "id": "5",
-      "productName": "sản phẩm 5",
-      "productCode": "TBX-0048",
-      "releaseDate": "May 21, 2016",
-      "description": "Đây là phần mô tả của sản phẩm 5",
-      "price": 759,
-      "starRating": 4.8,
-      "inStock": 5,
-      "imageUrl": "../assets/img/sanpham5.jpg"
+      "productName": "Gỏi Cuốn",
+      "productCode": "4",
+      "releaseDate": "1234-03-12",
+      "description": "goit cuốn ",
+      "price": 123,
+      "inStock": 123,
+      "imageUrl": "../assets/img/goicuon.png"
     },
     {
-      "productName": "sản phẩm 6",
-      "productCode": "TBX-0048",
-      "releaseDate": "May 21, 2016",
-      "description": "Đây là phần mô tả của sản phẩm 6",
-      "price": 759,
-      "inStock": 5,
-      "imageUrl": "../assets/img/hero-img.png",
-      "id": "6"
+      "id": "4",
+      "productName": "BeffSteak",
+      "productCode": "6",
+      "releaseDate": "0123-03-12",
+      "description": "1213",
+      "price": 123,
+      "inStock": 123,
+      "imageUrl": "../assets/img/bo.png"
     },
     {
-      "id": 4,
-      "productName": "sản phẩm 2123123123123",
-      "productCode": "GDN-0023",
-      "releaseDate": "0132-03-12",
-      "description": "Đây là phần mô tả của sản phẩm 2",
-      "price": 920,
-      "inStock": 5,
-      "imageUrl": "../assets/img/sanpham4.jpg"
+      "id": "6",
+      "productName": "Lẩu",
+      "productCode": "7",
+      "releaseDate": "0123-03-12",
+      "description": "lẩu",
+      "price": 123,
+      "inStock": 123,
+      "imageUrl": "../assets/img/goidudu.png"
     }
   ],
   "users": [
@@ -73,11 +71,36 @@
       "id": "7a04",
       "email": "admin@gmail.com",
       "password": "123123123",
-      "comfirm_password": "123123123"
+      "comfirm_password": "123123123",
+      "role": "1"
     },
     {
       "id": "f8d9",
       "email": "truongkiet233@gmail.com",
+      "password": "123123123",
+      "comfirm_password": "123123123"
+    },
+    {
+      "id": "b95c",
+      "email": "truongkiet2333@gmail.com",
+      "password": "123123123",
+      "comfirm_password": "12312312"
+    },
+    {
+      "id": "aee5",
+      "email": "nhasach@gmail.com",
+      "password": "12345678",
+      "comfirm_password": "12345678"
+    },
+    {
+      "id": "cc5c",
+      "email": "giakiet233@gmail.com",
+      "password": "123123123",
+      "comfirm_password": "123123123"
+    },
+    {
+      "id": "1a77",
+      "email": "admin@admin.com",
       "password": "123123123",
       "comfirm_password": "123123123"
     }

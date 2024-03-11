@@ -14,9 +14,17 @@ export class RegisterComponent {
     password: '',
     comfirm_password: ''
   };
+  errorMessage: string = '';
 
   constructor(private authService: AuthService) { }
-
+  isFormIncomplete(): boolean {
+    return !this.form.email || !this.form.password || !this.form.comfirm_password || this.form.password.length < 8 || this.form.comfirm_password.length < 8;
+  }
+  
+  passwordsMatch(): boolean {
+    return this.form.password === this.form.comfirm_password;
+  }
+  
   submit() {
     this.authService.register(this.form);
   }

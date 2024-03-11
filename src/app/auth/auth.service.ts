@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginForm, RegisterForm } from './auth';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   isAuthenticated: boolean = false;
   isLoading: boolean = false;
+  errorMessage: string = '';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -18,6 +20,7 @@ export class AuthService {
     this.http.get<any[]>(this.usersUrl).subscribe(users => {
       const user = users.find(u => u.email === form.email && u.password === form.password);
       if (user) {
+
         this.isAuthenticated = true;
         alert('Đăng nhập Thành công');
         this.router.navigate(['']);
@@ -28,27 +31,32 @@ export class AuthService {
     });
   }
 
+  getAdmin(): Observable<any[]> {
+    return this.http.get<any[]>(this.usersUrl);
+  }
   register(form: RegisterForm) {
     this.http.get<any[]>(this.usersUrl).subscribe(users => {
       const emailExists = users.some(u => u.email === form.email);
       if (emailExists) {
-        alert('Email đã tồn tại');
+        this.errorMessage = 'Email đã tồn tại';
       } else {
         this.http.post(this.usersUrl, form).subscribe(
           (response) => {
             console.log('User registered successfully:', response);
             this.router.navigate(['login']);
             this.isAuthenticated = true;
-            alert('Đăng kí thành công');
+            this.errorMessage = '';
           },
           (error) => {
             console.error('Error registering user:', error);
-            alert('Error registering user');
+            this.errorMessage = 'Error registering user';
           }
-        );
+          );
+        alert('Đăng kí Thành công');
       }
     });
   }
+  
 
   logout() {
     this.router.navigate(['login']);

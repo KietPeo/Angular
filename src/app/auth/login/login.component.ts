@@ -14,7 +14,9 @@ export class LoginComponent {
   };
 
   constructor(private authService: AuthService) { }
-
+  isFormIncomplete(): boolean {
+    return !this.form.email || !this.form.password || this.form.password.length < 8 ;
+  }
   submit() {
     this.authService.login(this.form);
     console.log(this.form);

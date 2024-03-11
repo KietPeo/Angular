@@ -27,6 +27,6 @@ export class ProductDetailComponent implements OnInit {
   }
   Add(){
    this.CartService.addCart(this.productDetail?.id!,this.productDetail)
-    
+    alert("Thêm thành công ")
   }
 }

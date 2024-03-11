@@ -9,17 +9,17 @@
               <h1 class="display-5 fw-bolder">Tên:{{ productDetail.productName }}</h1>
               <div class="fs-5 mb-5">
                   <span>Giá: {{ productDetail.price }}</span> <br>
-                  <span>Số Lượng: {{ productDetail.inStock }}</span>
+                  <!-- <span>Số Lượng: {{ productDetail.inStock }}</span> -->
               </div>
               <p class="lead">{{ productDetail.description }}</p>
               <div class="d-flex" *ngIf="productDetail.inStock > 0">
                   <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem">
-                  <a class="btn btn-outline-dark flex-shrink-0" (click)="Add()" type="button" routerLink="/cart">
+                  <a class="btn btn-outline-dark flex-shrink-0" (click)="Add()" type="button" >
                       <i class="bi-cart-fill me-1"></i>
                       Add to cart
                   </a>
               </div>
-              <div *ngIf="productDetail.inStock === 0">Hết hàng</div>
+              <!-- <div *ngIf="productDetail.inStock === 0">Hết hàng</div> -->
           </div>
       </div>
   </div>
