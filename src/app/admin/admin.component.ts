@@ -14,7 +14,7 @@ export class AdminComponent {
   selectedImage: File | null = null;
   imageUrl: string = '';
   editingIndex: number | null = null; 
-
+  isEdit=false;
   constructor(private productService: ProductService, private formBuilder: FormBuilder) {
     this.newProductForm = this.formBuilder.group({
       productName: ['', Validators.required],
@@ -61,6 +61,7 @@ export class AdminComponent {
   }
 
   Edit(index: number) {
+    this.isEdit=true;
     this.editingIndex = index; // Lưu chỉ số của sản phẩm đang được chỉnh sửa
     const productToEdit = this.productList[index];
     this.newProductForm.patchValue({
@@ -74,6 +75,7 @@ export class AdminComponent {
     });
   }
   Update() {
+    this.isEdit=false;
     if (this.editingIndex !== null) {
       const formData = this.newProductForm.value;
       const productId = this.productList[this.editingIndex].id;

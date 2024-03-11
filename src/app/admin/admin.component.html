@@ -23,7 +23,7 @@
         <td>{{ item.price }}</td>
         <td>
           <a  class="btn btn-info ms-auto" data-bs-toggle="modal" data-bs-target="#modelId" (click)="Edit(i)">Edit</a> <!-- Gọi hàm Edit với index là i -->
-          <a  class="btn btn-danger" (click)="Delete(i)">Delete</a> <!-- Gọi hàm Delete với index là i -->
+          <a  class="btn btn-danger"  (click)="Delete(i)">Delete</a> <!-- Gọi hàm Delete với index là i -->
         </td>
       </tr>
     </tbody>
@@ -57,7 +57,8 @@
       <label for="image" class="form-label">Product Image</label>
       <input type="file" class="form-control" id="image" formControlName="imageUrl" (change)="onImageChange($event)" required>
     </div>
-    <button type="submit" class="btn btn-primary">Add Product</button>  <br>
-     <button type="button" class="btn btn-primary mt-2" (click)="Update()">Update</button>
+    <button type="submit" class="btn btn-primary" *ngIf="!isEdit">Add Product</button> <!-- Only show when not in edit mode -->
+    <button type="button" class="btn btn-primary mt-2" *ngIf="isEdit" (click)="Update()">Update</button> <!-- Only show when in edit mode -->
+    
   </form>
   

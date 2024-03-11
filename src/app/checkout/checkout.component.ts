@@ -18,8 +18,8 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.cartList = Object.values(params['cartList']);
-      console.log('Cart list:', params['cartList']);
+      // this.cartList = Object.values(params['cartList']);
+      // console.log('Cart list:', params['cartList']);
     
     });
    this.cartList= this.cartService.getCartAll()
@@ -37,7 +37,7 @@ export class CheckoutComponent implements OnInit {
     return totalPrice;
   }
   hello(){
-    alert('Chúc mừng bạn đã qua môn ')
+    alert('ok ')
   }
   
 }

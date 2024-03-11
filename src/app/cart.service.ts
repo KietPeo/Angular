@@ -48,6 +48,7 @@ export class CartService {
           inStock: frmProduct.inStock,
           Quantity: 1 // Đặt số lượng mặc định là 1 cho sản phẩm mới
       };
+      
       this.cartList.push(newItem);
   } else {
       // Nếu sản phẩm đã tồn tại trong giỏ hàng, tăng số lượng của nó lên 1

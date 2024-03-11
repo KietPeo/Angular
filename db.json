@@ -1,14 +1,14 @@
 {
   "products": [
     {
-      "id": "2",
-      "productName": "sản phẩm 2",
+      "productName": "sản phẩm 2123123123123",
       "productCode": "GDN-0023",
       "releaseDate": "0132-03-12",
       "description": "Đây là phần mô tả của sản phẩm 2",
       "price": 920,
       "inStock": 5,
-      "imageUrl": "../assets/img/sanpham2.jpg"
+      "imageUrl": "../assets/img/sanpham2.jpg",
+      "id": "2"
     },
     {
       "id": "3",
@@ -22,15 +22,14 @@
       "imageUrl": "../assets/img/sanpham3.jpg"
     },
     {
-      "id": "4",
-      "productName": "sản phẩm4",
-      "productCode": "TBX-0048",
-      "releaseDate": "May 21, 2016",
-      "description": "Đây là phần mô tả của sản phẩm4",
-      "price": 759,
-      "starRating": 4.8,
+      "productName": "sản phẩm 2123123123123",
+      "productCode": "GDN-0023",
+      "releaseDate": "0132-03-12",
+      "description": "Đây là phần mô tả của sản phẩm 2",
+      "price": 920,
       "inStock": 5,
-      "imageUrl": "../assets/img/sanpham4.jpg"
+      "imageUrl": "../assets/img/stats-bg.jpg",
+      "id": "4"
     },
     {
       "id": "5",
@@ -52,6 +51,16 @@
       "inStock": 5,
       "imageUrl": "../assets/img/hero-img.png",
       "id": "6"
+    },
+    {
+      "id": 4,
+      "productName": "sản phẩm 2123123123123",
+      "productCode": "GDN-0023",
+      "releaseDate": "0132-03-12",
+      "description": "Đây là phần mô tả của sản phẩm 2",
+      "price": 920,
+      "inStock": 5,
+      "imageUrl": "../assets/img/sanpham4.jpg"
     }
   ],
   "users": [
@@ -63,6 +72,12 @@
     {
       "id": "7a04",
       "email": "admin@gmail.com",
+      "password": "123123123",
+      "comfirm_password": "123123123"
+    },
+    {
+      "id": "f8d9",
+      "email": "truongkiet233@gmail.com",
       "password": "123123123",
       "comfirm_password": "123123123"
     }
